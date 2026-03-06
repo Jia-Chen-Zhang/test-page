@@ -1,25 +1,70 @@
-/* Header */
 
-/* Animation Styles */
-.magic-text {
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 3s ease-in-out infinite;
+/* 定义字体变量 */
+:root {
+    --font-heading: 'Montserrat', sans-serif; /* 标题字体 */
+    --font-body: 'Lora', serif;               /* 正文字体 */
 }
 
+/* 应用到 Abstract 标题 */
 @keyframes shimmer {
-
-    0%,
-    100% {
-        filter: hue-rotate(0deg);
-    }
-
-    50% {
-        filter: hue-rotate(180deg);
-    }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
+
+
+#title {
+    /* 字体设置 */
+    font-family: var(--font-heading, 'Montserrat', sans-serif); /*  fallback 字体 */
+    font-weight: 800; /* 加粗让渐变更明显 */
+    letter-spacing: -0.5px;
+    margin-bottom: 15px;
+    font-size: 2.2rem; /* 稍微调大一点，更醒目 */
+    line-height: 1.2em;
+    margin-top: 20px;
+    
+    /* --- 核心渐变设置 --- */
+    /* 定义丰富的渐变色带 */
+    background: linear-gradient(
+        90deg, 
+        #ff6b6b, /* 红 */
+        #4ecdc4, /* 青 */
+        #45b7d1, /* 蓝 */
+        #96ceb4, /* 绿 */
+        #ff6b6b  /* 回到红，形成闭环 */
+    );
+    
+    /* 放大背景以便动画移动 */
+    background-size: 300% auto;
+    
+    /* 将背景裁剪到文字形状 */
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* 关键：文字本身必须透明，才能露出背景 */
+    color: transparent; 
+    -webkit-text-fill-color: transparent;
+    
+    /* 应用动画 */
+    animation: shimmer 4s linear infinite;
+    
+    /* 确保作为块级元素显示，防止布局问题 */
+    display: inline-block; 
+    width: 100%;
+}
+
+/* 应用到摘要正文 */
+p.abstract-text {
+    font-family: var(--font-body);
+    font-size: 1.05rem;     /* 稍微大一点，更易读 */
+    line-height: 1.8;       /* 增加行高，呼吸感更强 */
+    color: #333;
+    text-align: justify;
+    hyphens: auto;
+    text-justify: inter-word;
+}
+
+
 
 /* Transformation Effect Styles */
 .slide-container {
@@ -93,21 +138,73 @@
     font-size: 0.9rem;
 }
 
+/* 新增：让 id 为 gallery 的 h3 标题也拥有彩色渐变效果 */
+h3#gallery {
+    /* 字体设置 */
+    font-family: var(--font-heading, 'Montserrat', sans-serif);
+    font-weight: 800; 
+    letter-spacing: -0.5px;
+    margin-bottom: 15px;
+    font-size: 2.2rem; 
+    line-height: 1.2em;
+    margin-top: 20px;
+    
+    /* --- 核心渐变设置 (与 #title 完全一致) --- */
+    background: linear-gradient(
+        90deg, 
+        #ff6b6b, 
+        #4ecdc4, 
+        #45b7d1, 
+        #96ceb4, 
+        #ff6b6b
+    );
+    background-size: 300% auto;
+    
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    color: transparent; 
+    -webkit-text-fill-color: transparent;
+    
+    animation: shimmer 4s linear infinite;
+    
+    display: inline-block; 
+    width: 100%;
+}
 
 /* Gallery Grid Styles */
 .gallery-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 15px;
     max-width: 900px;
     margin: 30px auto;
     width: 100%;
 }
 
+.gallery-header {
+    text-align: center; /* 文字水平居中 */
+    font-weight: bold;
+    font-size: 1.1rem; /* 调整字体大小 */
+    color: #333;
+    margin-bottom: 10px; /* 标题与图片的间距 */
+    padding: 5px 0;
+    /* 确保标题占据完整的列宽 */
+    grid-column: span 1; 
+}
+
+/* 确保图片容器也占满一格 */
 .gallery-item {
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* .gallery-item {
     display: block;
     width: 100%;
-}
+} */
 
 .gallery-item .slide-container {
     width: 100%;

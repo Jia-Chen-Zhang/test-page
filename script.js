@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Show "Gallery"
             galleryBtn.classList.remove('to-top');
             btnIcon.textContent = '🧭';
-            btnText.textContent = 'Gallery';
+            btnText.textContent = 'Showcase';
 
             galleryBtn.onclick = function (e) {
                 e.preventDefault();

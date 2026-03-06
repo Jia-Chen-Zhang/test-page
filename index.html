@@ -2,17 +2,20 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>DesignLab</title>
-        <link rel="icon" type="image/x-icon" href="./assets/favicon_davian.png">
+        <title>SlideVise</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="./assets/page.png">
         <link type="text/css" rel="stylesheet" href="https://bootswatch.com/5/journal/bootstrap.min.css">
         <link type="text/css" rel="stylesheet" href="style.css">
         <script src="script.js"></script>
     </head>
     
 <body>
-    <a href="#gallery" class="gallery-btn" id="galleryBtn">
+    <a href="#Showcase" class="gallery-btn" id="galleryBtn">
         <span class="btn-icon">🖼️</span>
-        <span class="btn-text">Gallery</span>
+        <span class="btn-text">Showcase</span>
     </a>
     <div class="container" style="margin-top:20px;">
         <div class="row">
@@ -20,11 +23,11 @@
             <div class="col-md-10">
                 <!-- Title and autors -->
                 <center>
-                    <h1 style="margin-top: 20px; margin-bottom: 20px; line-height: 1.2em;">
-                        <span class="magic-text">DesignLab:</span> Designing Slides Through Iterative <br> Detection and Correction</h1>
+                    <h1 id="title" style="margin-top: 20px; margin-bottom: 20px; line-height: 1.2em;">
+                        SlideVise: Visual Preference Learning for <br> Code-Based Slide Generation</h1>
                     <!-- <h4>ECCV 2024</h4> -->
                     <!-- author -->
-                    <div class="row author" style="margin-top:18px;">
+                    <!-- <div class="row author" style="margin-top:18px;">
                         <div class="col-md"></div>
                         <div class="col-md">
                             <a href="https://yeolj00.github.io/" style="text-decoration: none;">
@@ -61,7 +64,7 @@
                             <em class="text-primary">shingo.takamatsu@sony.com</em>
                         </div>
                         <div class="col-md"></div>
-                    </div>
+                    </div> -->
                     <!-- Affiliation Logo -->
                     <!-- <div class="row author" , style="margin-top:20px;">
                          <figure class="figure">
@@ -69,7 +72,7 @@
                              <img src="assets/logo_kaist.svg" class="figure-img img-fluid" style="margin: 0px 50px" width="20%">
                          </figure>
                     </div> -->
-                    <div class="row author" style="margin-top:20px;margin-bottom: 20px;">
+                    <!-- <div class="row author" style="margin-top:20px;margin-bottom: 20px;">
                         <div class="col-md-2"></div>
                         <div class="col-md-4">
                             <h3>Sony Group Corporation</h3>
@@ -78,23 +81,23 @@
                             <h3>KAIST</h3>
                         </div>
                         <div class="col-md-2"></div>
-                    </div>
+                    </div> -->
                 </center>
                 
                 <!-- Teaser -->
                 <center>
                     <figure class="figure">
-                        <img src="assets/intro_teaser.png" class="figure-img img-fluid" alt="Responsive image" style="margin:0px 0px;" width="100%">
+                        <img src="assets/Figure1.png" class="figure-img img-fluid" alt="Responsive image" style="margin:0px 0px;" width="85%">
                         <figcaption class="figure-caption text-justify">
                             <center>
-                                DesignLab turns rough drafts into professional-quality presentations by iteratively detecting and correcting design issues.
+                                Schematic illustration and comparison of slide generation paradigms.
                             </center>
                         </figcaption>
                     </figure>
                 </center>
                 
                 <!-- ICONs (arXiv, Code, BibTeX) -->
-                <div style="margin-top:15px"></div>
+                <!-- <div style="margin-top:15px"></div>
                 <center>
                     <div class="row">
                         <div class="col-sm-3"></div>
@@ -114,40 +117,44 @@
                                 </div>
                             </a>
                         </div>
-                        <!-- <div class="col-sm">
+                        <leaddiv class="col-sm">
                             <a style="text-decoration: none;color: #000000;">
                                 <div>
                                     <img src="assets/icon_bibtex.png" height="64px"></img>
                                     <h4>BibTeX</h4>
                                 </div>
                             </a>
-                        </div> -->
+                        </div>
                         <div class="col-sm-3"></div>
                     </div>
                 </center>
-                <hr>
+                <hr> -->
 
                 <!-- Abstract -->
-                <h3>Abstract</h3>
+                <h3 id="title">Abstract</h3>
                 <div>
-                    <p class="lead">
-                        Designing high-quality presentation slides can be challenging for non-experts due to the complexity involved in navigating various design choices. 
-                        Numerous automated tools can suggest layouts and color schemes, yet often lack the ability to refine their own output, which is a key aspect in real-world workflows. 
-                        We propose DesignLab, which separates the design process into two roles, the design reviewer, who identifies design-related issues, and the design contributor who corrects them. 
-                        This decomposition enables an iterative loop where the reviewer continuously detects issues and the contributor corrects them, allowing a draft to be further polished with each iteration, reaching qualities that were unattainable. 
-                        We fine-tune large language models for these roles and simulate intermediate drafts by introducing controlled perturbations, enabling the design reviewer learn design errors and the contributor learn how to fix them.
-                        Our experiments show that DesignLab outperforms existing design-generation methods, including a commercial tool, by embracing the iterative nature of designing which can result in polished, professional slides. 
+                    <p class="abstract-text">
+                        Automated slide generation systems typically emphasize semantic correctness while failing to account for the inherently visual nature of slides, which often results in issues such as element overlap, text occlusion, and disorganized layouts.
+                        To address these limitations, we present a visually enhanced training strategy that enables visual quality signals to directly affect component selection, positioning, and sizing during the generation process.
+                        The proposed method consists of two stages. First, we build an automated data synthesis pipeline that integrates visual evaluation to construct a training corpus.
+                        This corpus encodes essential visual priors, including component positioning, sizing, and spatial organization.
+                        Supervised fine-tuning on this dataset establishes a reliable mapping from user requirements to compilable code.
+                        Second, we synthesize paired samples via parameter perturbation and use the visual differences between them as reward signals to further optimize the model, thereby effectively injecting continuous and differentiable visual supervision into the generative process.
+                        Unlike conventional generate-then-feedback paradigms, the proposed method tightly couples visual guidance with code synthesis, enabling the model to proactively avoid visually suboptimal configurations.
+                        Experimental results demonstrate that our proposed approach reduces failures in layout while preserving semantic fidelity, leading to clearer structures and more consistent visual organization.
+                        Furthermore, scores based on VLMs align well with human judgments under identical criteria.
+                        The code and model weights will be made publicly available.
                     </p>
                 </div>
                 <hr>
 
                 <!-- Introduction -->
-                <h3>For those who struggle with creating presentation slides</h3>
+                <!-- <h3 id="title">For those who struggle with creating presentation slides</h3>
                 <br>
                 <center>
                     <h5 class="text-body-secondary">Creating <span class="text-primary"> high-quality presentation slides</span> is not easy for everyone.</h5>
                     <h5 class="text-body-secondary">It often involves a <span class="text-info">series of nuanced decisions</span> such as <span class="text-info-emphasis">placing content</span> or choosing <span class="text-info-emphasis"> color schemes</span> and <span class="text-info-emphasis">topography</span>...</h5>
-                    <!-- Three figures side by side -->
+                    Three figures side by side 
                     <div class="row" style="margin-top:25px">
                         <div class="col-md-4">
                             <img src="assets/slides_before/1.jpg" class="img-fluid" alt="Responsive image" style="margin:0px;margin-bottom:10px" border="1">
@@ -168,38 +175,29 @@
                     <h5 class="text-body-secondary">...and it can be a real headache.</h5>
                     <br>
                 </center>
-                <hr>
+                <hr> -->
                 
-                <h3>Say hello to effortless presentations!</h3>
+                <h3 id="title">Better Presentations!</h3>
                 <center>
                     <div style="margin-top:25px"></div>
-                    <h5 class="text-body-secondary"><span class="text-danger">DesignLab</span> polishes your rough ideas into presentations that actually look professional.</h5>
-                    <h5 class="text-body-secondary">Watch your slides come alive with designs that drive your message home.</h5>
+                    <h5 class="text-body-secondary">SlideVise refines your ideas into more professional presentations.</h5>
+                    <h5 class="text-body-secondary">Ensure your slides feature clearer and more organized layouts.</h5>
                     
                     <div class="row" style="margin-top:25px" id="slideTransforms">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="slide-container">
-                                <img src="assets/slides_before/1.jpg"
+                                <img src="assets/gpt-5-mini/1.png"
                                      class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/1.jpg"
+                                <img src="assets/ours/1.png"
                                      class="slide-after img-fluid" alt="After transformation" border="1">
                                 <div class="transform-progress"></div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="slide-container">
-                                <img src="assets/slides_before/8.jpg"
+                                <img src="assets/gpt-5-mini/2.png"
                                      class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/8.jpg"
-                                     class="slide-after img-fluid" alt="After transformation" border="1">
-                                <div class="transform-progress"></div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="slide-container">
-                                <img src="assets/slides_before/6.jpg"
-                                     class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/6.jpg"
+                                <img src="assets/ours/2.png"
                                      class="slide-after img-fluid" alt="After transformation" border="1">
                                 <div class="transform-progress"></div>
                             </div>
@@ -214,199 +212,173 @@
                 </center>
                 <hr>
                 
-                <h3>How does it work?</h3>
+                <h3 id="title">How does it work?</h3>
                 <center>
                 <br>
-                <h5 class="text-body-secondary">Our system how professional designers actually work - spot problems, make improvements, and repeat.</h5>
-                <h5 class="text-body-secondary">We fine-tune LLMs to act as a <span class="text-primary">design reviewer</span> (who spot problems) and a <span class="text-info">design contributor</span> (who makes suggestions).</h5>
-                <h5 class="text-body-secondary">This <span class="text-success">iterative process</span> continues until the design is polished to perfection.</h5>
+                    <p class="abstract-text">
+                        SlideVise employs a two-stage training strategy. 
+                        Initially, it constructs a high-quality dataset incorporating visual evaluation via an automated pipeline, leveraging SFT to establish a reliable mapping from user requirements to compilable code.
+                        Subsequently, visual reinforcement training is conducted, introducing Layout-Aware Slide Similarity (LASS) to quantify visual discrepancies and employing Weighted DPO to further reinforce the model's preference for high-quality layouts.
+                        Ultimately, the model ensures semantic correctness while proactively avoiding visual defects, generating slides that are both structurally coherent and aesthetically pleasing.
+                    </p>
                 <br>
                 <figure class="figure">
-                    <img src="assets/method_main.png" class="figure-img img-fluid" alt="Responsive image"
+                    <img src="assets/Figure2.png" class="figure-img img-fluid" alt="Responsive image"
                         style="margin:0px;margin-bottom:10px;" width="90%">
                     <figcaption class="figure-caption text-body-tertiary">
-                            The deisgn reviewer identifies design issues using the TENTATIVE label, and the design contributor suggests improvements.<br>
-                            This process is repeated until the design has no more issues.
+                           SlideVise adopts a two-stage pipeline comprising data construction and model training.
                     </figcaption>
                 </figure>
                 </center>
                 <hr>
 
-                <h3>Results</h3>
+                <h3 id="title">Results</h3>
                 <center>
-                <h5 class="text-body-secondary">Our user study evaluates the effect of our iterative refinement on slide aesthetics.</h5>
-                <h5 class="text-body-secondary">We compare DesignLab with a commercial tool and a state-of-the-art design generation method.</h5>
-                <h5 class="text-body-secondary">The results show that DesignLab significantly improves the aesthetics of presentation slides in each iteration.</h5>
+                <p class="abstract-text">Performance comparison of SlideVise-7B with code models and existing slide generation systems.</p>
+                <!-- <h5 class="text-body-secondary">We compare DesignLab with a commercial tool and a state-of-the-art design generation method.</h5>
+                <h5 class="text-body-secondary">The results show that DesignLab significantly improves the aesthetics of presentation slides in each iteration.</h5> -->
                 <br>
                 <figure class="figure">
-                    <img src="assets/analysis_improvement.png" class="figure-img img-fluid" alt="Responsive image"
-                        style="margin:0px;margin-bottom:10px;" width="40%">
-                    <img src="assets/rebuttal_userstudy.png" class="figure-img img-fluid" alt="Responsive image"
-                        style="margin:0px;margin-bottom:10px;" width="40%">
+                    <img src="assets/Figure3.png" class="figure-img img-fluid" alt="Responsive image"
+                        style="margin:0px;margin-bottom:10px;" width="90%">
+                    <!-- <img src="assets/Figure4.png" class="figure-img img-fluid" alt="Responsive image"
+                        style="margin:0px;margin-bottom:10px;" width="50%">
+                    <img src="assets/Figure4.png" class="figure-img img-fluid" alt="Responsive image"
+                        style="margin:0px;margin-bottom:10px;" width="40%"> -->
                     <figcaption class="figure-caption text-justify">
                         <center>
-                            (Left) User study demonstrating that DesignLab significantly improves the aesthetics of presentation slides in each iteration.<br>
-                            (Right) DesignLab outperforms a commercial tool and a state-of-the-art design generation method in terms of aesthetics.
+                            These results indicate that code generated by SlideVise-7B is stronger in structural validity and visual consistency, and transfers seamlessly <br>
+                            across different MAS pipelines while substantially improving system-level performance without modifying the underlying framework design.
                         </center>
                     </figcaption>
                 </figure>
                 </center>
                 <hr>
 
-                <h3 id="gallery">Gallery</h3>
+                <h3 id="gallery">Showcase</h3>
                 <center>
                     <!-- <h5 class="text-body-secondary">Hover over any slide to see the transformation</h5> -->
                     <div class="gallery-grid">
                         <!-- Row 1 -->
-                        <div class="gallery-item">
-                            <div class="slide-container">
-                                <img src="assets/slides_before/2.jpg"
-                                     class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/2.jpg"
-                                     class="slide-after img-fluid" alt="After transformation" border="1">
-                                <div class="transform-progress"></div>
+                        <div class="gallery-column">
+                            <div class="gallery-header">AutoPresent</div> <!-- 修改这里的文字 -->
+                            <div class="gallery-item">
+                                <div class="figure">
+                                    <img src="assets/auto/1.png" class="figure-img img-fluid" alt="Responsive image"
+                                        style="margin:0px;margin-bottom:10px;" width="100%">
+                                </div>
                             </div>
                         </div>
-                        <div class="gallery-item">
-                            <div class="slide-container">
-                                <img src="assets/slides_before/3.jpg"
-                                     class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/3.jpg"
-                                     class="slide-after img-fluid" alt="After transformation" border="1">
-                                <div class="transform-progress"></div>
+                        <div class="gallery-column">
+                            <div class="gallery-header">PPTAgent</div> <!-- 修改这里的文字 -->
+                            <div class="gallery-item">
+                                <div class="figure">
+                                    <img src="assets/pptagent/1.png" class="figure-img img-fluid" alt="Responsive image"
+                                        style="margin:0px;margin-bottom:10px;" width="100%">
+                                </div>
                             </div>
                         </div>
-                        <div class="gallery-item">
-                            <div class="slide-container">
-                                <img src="assets/slides_before/4.jpg"
-                                     class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/4.jpg"
-                                     class="slide-after img-fluid" alt="After transformation" border="1">
-                                <div class="transform-progress"></div>
+                        <div class="gallery-column">
+                            <div class="gallery-header">Banana-slide</div> <!-- 修改这里的文字 -->
+                            <div class="gallery-item">
+                                <div class="figure">
+                                    <img src="assets/banana/1.png" class="figure-img img-fluid" alt="Responsive image"
+                                        style="margin:0px;margin-bottom:10px;" width="100%">
+                                </div>
                             </div>
                         </div>
-                        
+                        <div class="gallery-column">
+                            <div class="gallery-header">SlideVise-7B</div> <!-- 修改这里的文字 -->
+                            <div class="gallery-item">
+                                <div class="figure">
+                                    <img src="assets/slidevise/1.png" class="figure-img img-fluid" alt="Responsive image"
+                                        style="margin:0px;margin-bottom:10px;" width="100%">
+                                </div>
+                            </div>
+                        </div>
                         <!-- Row 2 -->
                         <div class="gallery-item">
-                            <div class="slide-container">
-                                <img src="assets/slides_before/Galaxy 5.jpg"
-                                     class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/Galaxy 5.jpg"
-                                     class="slide-after img-fluid" alt="After transformation" border="1">
-                                <div class="transform-progress"></div>
+                            <div class="figure">
+                                <img src="assets/auto/2.png" class="figure-img img-fluid" alt="Responsive image"
+                                    style="margin:0px;margin-bottom:10px;" width="100%">
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <div class="slide-container">
-                                <img src="assets/slides_before/6.jpg"
-                                     class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/6.jpg"
-                                     class="slide-after img-fluid" alt="After transformation" border="1">
-                                <div class="transform-progress"></div>
+                            <div class="figure">
+                                <img src="assets/pptagent/2.png" class="figure-img img-fluid" alt="Responsive image"
+                                    style="margin:0px;margin-bottom:10px;" width="100%">
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <div class="slide-container">
-                                <img src="assets/slides_before/7.jpg"
-                                     class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/7.jpg"
-                                     class="slide-after img-fluid" alt="After transformation" border="1">
-                                <div class="transform-progress"></div>
+                            <div class="figure">
+                                <img src="assets/banana/2.png" class="figure-img img-fluid" alt="Responsive image"
+                                    style="margin:0px;margin-bottom:10px;" width="100%">
                             </div>
                         </div>
-                        
+                        <div class="gallery-item">
+                            <div class="figure">
+                                <img src="assets/slidevise/2.png" class="figure-img img-fluid" alt="Responsive image"
+                                    style="margin:0px;margin-bottom:10px;" width="100%">
+                            </div>
+                        </div>
                         <!-- Row 3 -->
                         <div class="gallery-item">
-                            <div class="slide-container">
-                                <img src="assets/slides_before/8.jpg"
-                                     class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/8.jpg"
-                                     class="slide-after img-fluid" alt="After transformation" border="1">
-                                <div class="transform-progress"></div>
+                            <div class="figure">
+                                <img src="assets/auto/3.png" class="figure-img img-fluid" alt="Responsive image"
+                                    style="margin:0px;margin-bottom:10px;" width="100%">
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <div class="slide-container">
-                                <img src="assets/slides_before/9.jpg"
-                                     class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/9.jpg"
-                                     class="slide-after img-fluid" alt="After transformation" border="1">
-                                <div class="transform-progress"></div>
+                            <div class="figure">
+                                <img src="assets/pptagent/3.png" class="figure-img img-fluid" alt="Responsive image"
+                                    style="margin:0px;margin-bottom:10px;" width="100%">
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <div class="slide-container">
-                                <img src="assets/slides_before/10.jpg"
-                                     class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/10.jpg"
-                                     class="slide-after img-fluid" alt="After transformation" border="1">
-                                <div class="transform-progress"></div>
+                            <div class="figure">
+                                <img src="assets/banana/3.png" class="figure-img img-fluid" alt="Responsive image"
+                                    style="margin:0px;margin-bottom:10px;" width="100%">
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="figure">
+                                <img src="assets/slidevise/3.png" class="figure-img img-fluid" alt="Responsive image"
+                                    style="margin:0px;margin-bottom:10px;" width="100%">
                             </div>
                         </div>
                         
                         <!-- Row 4 -->
                         <div class="gallery-item">
-                            <div class="slide-container">
-                                <img src="assets/slides_before/11.jpg"
-                                     class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/11.jpg"
-                                     class="slide-after img-fluid" alt="After transformation" border="1">
-                                <div class="transform-progress"></div>
+                            <div class="figure">
+                                <img src="assets/auto/4.png" class="figure-img img-fluid" alt="Responsive image"
+                                    style="margin:0px;margin-bottom:10px;" width="100%">
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <div class="slide-container">
-                                <img src="assets/slides_before/12.jpg"
-                                     class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/12.jpg"
-                                     class="slide-after img-fluid" alt="After transformation" border="1">
-                                <div class="transform-progress"></div>
+                            <div class="figure">
+                                <img src="assets/pptagent/4.png" class="figure-img img-fluid" alt="Responsive image"
+                                    style="margin:0px;margin-bottom:10px;" width="100%">
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <div class="slide-container">
-                                <img src="assets/slides_before/13.jpg"
-                                     class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/13.jpg"
-                                     class="slide-after img-fluid" alt="After transformation" border="1">
-                                <div class="transform-progress"></div>
+                            <div class="figure">
+                                <img src="assets/banana/4.png" class="figure-img img-fluid" alt="Responsive image"
+                                    style="margin:0px;margin-bottom:10px;" width="100%">
                             </div>
                         </div>
-                        
+                        <div class="gallery-item">
+                            <div class="figure">
+                                <img src="assets/slidevise/4.png" class="figure-img img-fluid" alt="Responsive image"
+                                    style="margin:0px;margin-bottom:10px;" width="100%">
+                            </div>
+                        </div>                 
                         <!-- Row 5 -->
-                        <div class="gallery-item">
-                            <div class="slide-container">
-                                <img src="assets/slides_before/14.jpg"
-                                     class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/14.jpg"
-                                     class="slide-after img-fluid" alt="After transformation" border="1">
-                                <div class="transform-progress"></div>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <div class="slide-container">
-                                <img src="assets/slides_before/15.jpg"
-                                     class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/15.jpg"
-                                     class="slide-after img-fluid" alt="After transformation" border="1">
-                                <div class="transform-progress"></div>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <div class="slide-container">
-                                <img src="assets/slides_before/16.jpg"
-                                     class="slide-before img-fluid" alt="Before transformation" border="1">
-                                <img src="assets/slides_after/16.jpg"
-                                     class="slide-after img-fluid" alt="After transformation" border="1">
-                                <div class="transform-progress"></div>
-                            </div>
-                        </div>
                     </div>
                 </center>
                 <hr>
 
                 <!-- Citation -->
-                <h3>Citation</h3>
+                <!-- <h3>Citation</h3>
                 <pre> 
 <code>
 @article{yun2025designlab,
@@ -420,7 +392,7 @@
             </div>
             <div class="col-md-1"></div>
         </div>
-    </div>
+    </div> -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
